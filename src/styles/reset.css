@@ -30,7 +30,6 @@ ul {
 
 /* Typography */
 body {
-  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -49,6 +48,10 @@ textarea {
   color: inherit;
 }
 
+/* remove default link style */
+a {
+  text-decoration: none;
+}
 /* Remove default button styles */
 button {
   border: none;
@@ -60,5 +63,3 @@ button {
 :focus {
   outline: none;
 }
-
-
