@@ -1,0 +1,45 @@
+@import url("../../styles/reset.css");
+header {
+  width: var(--max-width);
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.5);
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--padding);
+  height: var(--header-height);
+  z-index: var(--z-index);
+}
+.logo {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  color: var(--primary-color);
+  letter-spacing: 2px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-left: 0.8rem;
+  color: var(--primary-color);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+.secondary-btn {
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  border: solid 2px var(--primary-color);
+  padding: 0.2rem 0.8rem;
+  border-radius: var(--border-radius);
+}
