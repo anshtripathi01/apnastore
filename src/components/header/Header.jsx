@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { HiOutlineShoppingCart, HiOutlineHeart } from "react-icons/hi";
 import "./header.css";
+import { Searchbar } from "../search/Searchbar";
+import "../search/searchbar.css";
 export const Header = () => {
   return (
     <header>
@@ -10,6 +12,9 @@ export const Header = () => {
             <h2 className="logo">ApnaStore</h2>
           </div>
         </NavLink>
+        <div className="desktop_search">
+          <Searchbar />
+        </div>
         <ul className="nav-menu">
           <li>
             <NavLink to="/products" className="nav-link">
@@ -33,6 +38,9 @@ export const Header = () => {
           </li>
         </ul>
       </nav>
+      <div className="mobile_search">
+        <Searchbar />
+      </div>
     </header>
   );
 };

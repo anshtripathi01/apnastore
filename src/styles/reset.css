@@ -46,6 +46,7 @@ textarea {
   font-size: inherit;
   line-height: inherit;
   color: inherit;
+  cursor: pointer;
 }
 
 /* remove default link style */

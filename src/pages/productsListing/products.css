@@ -1,0 +1,175 @@
+section {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* filter sidebar css */
+.aside {
+  height: calc(100vh - 80px);
+  padding: 0 1rem;
+  flex-basis: 50%;
+  position: sticky;
+  top: 80px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* mobile sidebar */
+.mobile_aside {
+  display: none;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.close_btn {
+  display: none;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.filter_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.filter_header h2 {
+  font-size: 1rem;
+}
+.filter_label {
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+.filters_container{
+  margin-top: 2rem;
+}
+
+.product_slider_label {
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+/* main css */
+
+.main {
+  height: max-content;
+  flex-basis: 50%;
+  padding: var(--padding);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.main_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header_btn {
+  display: none;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+}
+
+/* products card */
+.main .card {
+  position: relative;
+  display: flex;
+  margin: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.3);
+  height: 340px;
+  width: 200px;
+}
+
+.main .card:hover {
+  box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* Card button sections */
+
+.btn-container {
+  height: 32px;
+}
+.btn {
+  box-shadow: 0 4px 1px rgba(0, 0, 0, 0.3);
+  background-color: var(--primary-color);
+  padding: 0.2rem 3.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 0.3rem;
+  font-weight: bolder;
+  color: #f7f7f7;
+}
+.btn:active {
+  opacity: var(--opacity);
+  margin-bottom: 0;
+}
+
+.disabled-btn{
+  opacity:  0.5 ;
+  cursor:not-allowed;
+}
+/* Slider css */
+
+.slider {
+  width: 100%;
+  cursor: pointer;
+}
+
+/* meadia query */
+
+@media screen and (max-width: 691px) {
+  .aside {
+    display: none;
+  }
+  .header_btn,
+  .close_btn,
+  .mobile_aside {
+    display: block;
+  }
+  .main {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (min-width: 692px) {
+  .aside {
+    display: flex;
+    overflow-y: scroll;
+    position: sticky;
+    flex-basis: 30%;
+  }
+
+  .main {
+    flex-basis: 70%;
+  }
+}
+
+@media screen and (min-width: 1028px) {
+  .aside {
+    flex-basis: 20%;
+  }
+  .main {
+    flex-basis: 80%;
+  }
+}
