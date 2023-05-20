@@ -1,0 +1,32 @@
+/* searchBar */
+.searchbar {
+  width: 100%;
+  padding: 0.2rem;
+  border-radius: var(--border-radius);
+  border: groove 2px var(--background-color);
+  cursor: text;
+}
+.searchbar::placeholder {
+  font-family: "Roboto", sans-serif;
+}
+.searchbar:focus {
+  border: solid 2px var(--primary-color);
+}
+
+.mobile_search {
+  display: block;
+}
+.desktop_search {
+  text-align: center;
+  display: none;
+  width: 50%;
+}
+
+@media screen and (min-width: 692px) {
+  .desktop_search {
+    display: block;
+  }
+  .mobile_search {
+    display: none;
+  }
+}

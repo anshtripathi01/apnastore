@@ -1,6 +1,8 @@
 @import url("../../styles/reset.css");
 header {
+  position: relative;
   width: var(--max-width);
+  top: 83px;
 }
 nav {
   position: fixed;

@@ -4,10 +4,13 @@ import image from "./images/home_image.png";
 import { useNavigate } from "react-router";
 import { Footer } from "../../components/footer/Footer";
 import { useCategory } from "../../context/categoryContext";
+import { useProducts } from "../../context/productsContext";
 export const Home = () => {
-  const {categoryState:{categories}} = useCategory()
+  const {
+    categoryState: { categories },
+  } = useCategory();
   const navigate = useNavigate();
-  
+  const { productsDispatcher } = useProducts();
   return (
     <>
       <div className="home_container">
@@ -17,7 +20,17 @@ export const Home = () => {
         <h2 className="category_text">Top Categories</h2>
         <div className="category-container">
           {categories?.map(({ _id, categoryName, image }) => (
-            <div key={_id} className="card">
+            <div
+              key={_id}
+              className="card"
+              onClick={() => {
+                productsDispatcher({
+                  type: "SORT_BY_HOME_CATEGORY",
+                  productsPayload: categoryName,
+                });
+                navigate("/products");
+              }}
+            >
               <img
                 src={image}
                 className="category_image"

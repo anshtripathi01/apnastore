@@ -3,6 +3,7 @@ import "./App.css";
 import { Home } from "./pages/home/Home";
 import Mockman from "mockman-js";
 import { Header } from "./components/header/Header";
+import { Products } from "./pages/productsListing/Products";
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/mock" element = {<Mockman/>} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/mock" element={<Mockman />} />
       </Routes>
     </div>
   );
