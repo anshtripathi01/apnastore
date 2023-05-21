@@ -23,7 +23,9 @@ export const ProductCard = ({
           </div>
         )}
         <AiFillHeart className="heart_icon" color="red" size={30} />
-        <img src={image} alt="Card-img" className="card_img" />
+        <Link to={`/products/${_id}`}>
+          <img src={image} alt="Card-img" className="card_img" />
+        </Link>
         <p className="rating">
           <AiFillStar color="orange" size="18" />
           {rating}|{reviews}
@@ -39,16 +41,7 @@ export const ProductCard = ({
         <div className="card_price">
           <p>
             <strong>₹{price}</strong>
-            <span
-              style={{
-                color: "lightgray",
-                textDecoration: "line-through",
-                fontSize: "1rem",
-                marginLeft: "0.5rem",
-              }}
-            >
-              ₹{originalPrice}
-            </span>
+            <span className="discount_price">₹{originalPrice}</span>
           </p>
 
           <p>60%OFF</p>

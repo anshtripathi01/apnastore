@@ -1,5 +1,3 @@
-import { v4 as uuid } from "uuid";
-
 /**
  * Product Database can be added here.
  * You can add products of your wish with different attributes
@@ -7,7 +5,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    _id: uuid(),
+    _id: "ece83ec6-2dc8-4f14-82b1-cada7c1f9998",
     title: "Men Printed Round T-Shirt",
     descriptions: "Men Printed Round Neck Black T-Shirt",
     originalPrice: 789,
@@ -21,7 +19,7 @@ export const products = [
       "https://rukminim1.flixcart.com/image/832/832/xif0q/t-shirt/t/e/0/l-st-theboys-black-smartees-original-imagnqszzzzyuzru.jpeg?q=70",
   },
   {
-    _id: uuid(),
+    _id: "456c67a9-5b2a-414d-a013-f6b079a5a2b2",
     title: "Women Typography T-Shirt",
     descriptions: "Women Typography Round Neck Black T-Shirt",
     originalPrice: 799,
@@ -34,7 +32,7 @@ export const products = [
       "https://rukminim1.flixcart.com/image/832/832/xif0q/t-shirt/b/w/7/s-ww-smile-black-smartees-original-imagnxamfkh2jnrt.jpeg?q=70",
   },
   {
-    _id: uuid(),
+    _id: "77ae258d-7dea-42bf-a3e5-118583d5237e",
     title: "Men Printed T-Shirt",
     descriptions: "Men Printed, Typography Round Neck Black T-Shirt",
     originalPrice: 889,
@@ -47,7 +45,7 @@ export const products = [
       "https://rukminim1.flixcart.com/image/832/832/xif0q/t-shirt/m/o/0/xl-nevergiveup-black-halfsleeve-smartees-original-imaghqfap26k5xbu.jpeg?q=70",
   },
   {
-    _id: uuid(),
+    _id: "38b9bc2a-5340-46a8-a1df-3e904c10cd36",
     title: "Women Anouk",
     descriptions: "Women Floral Printed Kurta",
     originalPrice: 1099,
@@ -61,7 +59,7 @@ export const products = [
       "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/19065282/2022/10/13/535e1c0c-11d0-47ae-a1c9-eaf8ed79a2951665653014797-Anouk-Women-Yellow--White-Floral-Printed-Pure-Cotton-A-Line--1.jpg",
   },
   {
-    _id: uuid(),
+    _id: "eec9668d-d9b0-4675-b339-a65872a5bf02",
     title: "Women Anarkali Kurta",
     descriptions:
       "Women Floral Print Viscose Rayon Anarkali Kurta  (Dark Blue)",
@@ -75,7 +73,7 @@ export const products = [
       "https://rukminim1.flixcart.com/image/832/832/kzk6bgw0/kurta/7/j/m/xxl-kurta-flared-u-neck-013-dhakre-fashion-original-imagbjgjxgb3pmbx.jpeg?q=70",
   },
   {
-    _id: uuid(),
+    _id: "9769b151-9570-4fc5-98fc-c9394dae462d",
     title: "Ausk Polo T-Shirt for Men",
     descriptions: "Polo T-shirt with Welt Pocket",
     originalPrice: 567,
@@ -88,7 +86,7 @@ export const products = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmxwNlOTvz7QWULnCec2dVjTnndXya65oVcg&usqp=CAU",
   },
   {
-    _id: uuid(),
+    _id: "8b47eb50-0d84-4153-ae30-14227d8417fa",
     title: "Roadster T-Shirt for Men",
     descriptions: "Printed Cotton  Pure Cotton T-shirt",
     originalPrice: 269,
@@ -102,7 +100,7 @@ export const products = [
       "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2475811/2018/4/20/11524206887991-Roadster-Men-Tshirts-9291524206887825-1.jpg",
   },
   {
-    _id: uuid(),
+    _id: "27edad4a-535f-49cc-9485-c57ec9b2b784",
     title: "BLive T-Shirt for Kids",
     descriptions: "Boys Solid Cotton Blend T Shirt  (Dark Blue, Pack of 1)",
     originalPrice: 1999,
@@ -115,7 +113,7 @@ export const products = [
       "https://rukminim1.flixcart.com/image/832/832/xif0q/kids-t-shirt/c/m/c/14-15-years-bnvpoloboy-plain-blive-original-imagmeyyeqpf2txh.jpeg?q=70",
   },
   {
-    _id: uuid(),
+    _id: "4e1ddd8b-2ecf-47e8-989f-17920465f88c",
     title: "Fubar Shirt for Men",
     descriptions: "Men Slim Fit Solid Spread Collar Formal Shirt",
     originalPrice: 789,
@@ -128,7 +126,7 @@ export const products = [
       "https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/x/6/q/m-kcsh-fo-1647-ma-fubar-original-imaghg9qdht3ghgn.jpeg?q=70",
   },
   {
-    _id: uuid(),
+    _id: "df697916-9b6a-445e-ae9f-d4ed978d0548",
     title: "Roadster Women Typography T-Shirt",
     descriptions: "Women Black Typography New Age Tshirt",
     originalPrice: 999,
@@ -141,20 +139,20 @@ export const products = [
       "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/13601582/2021/6/28/b3936098-a75b-4068-b4c1-24ae60b924031624874368878-Roadster-Women-Tshirts-2901624874368395-1.jpg",
   },
   {
-    _id: uuid(),
+    _id: "73a5dda4-f56c-4adb-8956-ead9cf27b916",
     title: "Nike shoes for Men",
-    descriptions: "Revolution 5 Running Shoes For Men  (Black)",
+    descriptions: "Men Flex Training Shoes (White)",
     originalPrice: 2999,
     price: 2014,
     categoryName: "men",
-    rating: 1.3,
+    rating: 4.1,
     reviews: "1k",
     inStock: false,
     image:
-      "https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/a/b/t/-original-imagpgpekpzwjchk.jpeg?q=70",
+      "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/19935288/2022/11/15/4b00e1f2-3334-404d-9417-cb7378e3af6b1668509746178-Nike-Air-Deldon-Easy-OnOff-Basketball-Shoes-7581668509745784-1.jpg",
   },
   {
-    _id: uuid(),
+    _id: "46e3012b-f474-4d91-a1ac-7de01c4fe6df",
     title: "Alan Jones T-shirt for Kids",
     descriptions: "Boys Striped Cotton Blend T Shirt  (Dark Green, Pack of 1)",
     originalPrice: 999,
@@ -168,7 +166,7 @@ export const products = [
   },
 
   {
-    _id: uuid(),
+    _id: "4d37ce5e-2890-49a0-a8e9-35208963eb06",
     title: "Print My Fashion",
     descriptions:
       "Boys Graphic Print Polyester T Shirt  (Dark Blue, Pack of 1)",
@@ -182,7 +180,7 @@ export const products = [
       "https://rukminim1.flixcart.com/image/832/832/kvzkosw0/kids-t-shirt/x/0/b/5-6-years-pmf-ts-b-p6-nb-5-6y-print-my-fashion-original-imag8rufzvjvhnzb.jpeg?q=70",
   },
   {
-    _id: uuid(),
+    _id: "fca5ca21-daa5-446e-aed6-170d5f23aba7",
     title: "pspeaches",
     descriptions:
       "Girls Magenta & Yellow Embroidered Ready to Wear Lehenga & Blouse With Dupatta",
@@ -197,7 +195,7 @@ export const products = [
       "https://assets.myntassets.com/f_webp,dpr_2.0,q_60,w_210,c_limit,fl_progressive/assets/images/19840384/2022/9/7/95605ac4-b15d-4e24-adcd-bdf926245fd11662555722165pspeachesGirlsMagentaYellowEmbroideredReadytoWearLehengaBlou1.jpg",
   },
   {
-    _id: uuid(),
+    _id: "e4dacde2-140a-4d4c-b452-5366229d621b",
     title: "NIKE T-Shirt for Men",
     descriptions: "Men Solid Round Neck Blue T-Shirt",
     originalPrice: 1595,
@@ -211,7 +209,7 @@ export const products = [
   },
 
   {
-    _id: uuid(),
+    _id: "b327fe03-f742-457d-a5b7-4e0b74803a54",
     title: "Roadster T-Shirt for Men",
     descriptions: "Men Maroon Typography Printed Cotton T-shirt",
     originalPrice: 251,
@@ -225,7 +223,7 @@ export const products = [
       "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2308267/2018/1/29/11517216335231-Roadster-Men-Maroon-Printed-Round-Neck-T-shirt-5591517216335098-1.jpg",
   },
   {
-    _id: uuid(),
+    _id: "d28820d7-dab4-4685-8a81-a7f0919f03ce",
     title: "FASHION DREAM",
     descriptions: "Girls Black & Brown Embroidered Ready to Wear Lehenga Choli",
     originalPrice: 3999,

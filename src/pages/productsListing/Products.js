@@ -4,12 +4,14 @@ import "./products.css";
 import { useState } from "react";
 import { AiFillFilter } from "react-icons/ai";
 import { FilterProduct } from "../../components/filters/FilterProduct";
+import { Loader } from "../../components/loader/Loader";
 
 export const Products = () => {
-  const { filterProducts } = useProducts();
+  const { filterProducts, isLoading } = useProducts();
   const [mobile, setMobile] = useState(false);
   return (
     <div className="App">
+    
       <section>
         <FilterProduct props={{ mobile, setMobile }} />
         <div className="main">
@@ -19,7 +21,7 @@ export const Products = () => {
               <AiFillFilter color="red" size={30} />
             </button>
           </div>
-          {!filterProducts.length && <h4>No Products found !!!</h4>}
+          {(isLoading && <Loader /> )|| (!filterProducts.length && <h4>No Products found !!!</h4>)}
           {filterProducts?.map(
             ({
               _id,
