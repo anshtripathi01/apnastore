@@ -41,9 +41,10 @@
   bottom: 0;
   left: 0;
   font-size: 1.1rem;
-  padding: 0rem;
+  padding: 0 0.5rem;
   height: 22px;
   background-color: var(--background-color);
+  border-top-right-radius:var(--border-radius) ;
 }
 
 /* card body css */
@@ -74,3 +75,9 @@
   justify-content: space-between;
   width: 190px;
 }
+.discount_price{
+    color:var(--gray-color);
+    text-decoration: line-through;
+    font-size: 1rem;
+    margin-left:0.5rem;
+  }

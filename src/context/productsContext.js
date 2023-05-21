@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import { productsReducer } from "../reducer/productsReducer";
 import {
   filterByCategory,
@@ -9,6 +9,7 @@ import {
 const productsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [productsState, productsDispatcher] = useReducer(productsReducer, {
     products: [],
     filters: [],
@@ -19,18 +20,24 @@ export const ProductsProvider = ({ children }) => {
     searchValue: "",
   });
   const fetchProducts = async () => {
-    const res = await fetch("/api/products");
-    const { products } = await res.json();
-    productsDispatcher({
-      type: "PRODUCTS_DATA",
-      productsPayload: { products },
-    });
+    try {
+      setIsLoading(true)
+      const res = await fetch("/api/products");
+      const { products } = await res.json();
+      productsDispatcher({
+        type: "PRODUCTS_DATA",
+        productsPayload: { products },
+      });
+      setIsLoading(false)
+    } catch (error) {
+      setIsLoading(false)
+      console.log("error in fetching data...");
+    }
   };
 
   useEffect(() => {
     fetchProducts();
   }, []);
-  console.log(productsState.sliderRange);
 
   const sortedProducts = sortProducts(productsState);
   const productsFilter = filterByRating(sortedProducts, productsState);
@@ -47,7 +54,7 @@ export const ProductsProvider = ({ children }) => {
     );
   return (
     <productsContext.Provider
-      value={{ productsState, productsDispatcher, filterProducts }}
+      value={{ productsState, productsDispatcher, filterProducts , isLoading}}
     >
       {children}
     </productsContext.Provider>
