@@ -5,6 +5,10 @@ import Mockman from "mockman-js";
 import { Header } from "./components/header/Header";
 import { Products } from "./pages/productsListing/Products";
 import { SingleProductPage } from "./pages/singleProductPage/SingleProductPage";
+import { Login } from "./pages/auth/login/Login";
+import { Profile } from "./pages/auth/profile/Profile";
+import { RequiresAuth } from "./pages/auth/Private/RequiresAuth";
+import { SignUp } from "./pages/auth/Signup/Signup";
 
 function App() {
   return (
@@ -14,6 +18,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:productId" element={<SingleProductPage />} />
+        <Route path="/login" element = {<Login />} />
+        <Route path="/profile" element = {<RequiresAuth><Profile /></RequiresAuth>} /> 
+        <Route path="/signup"  element = {<SignUp />}/>
         <Route path="/mock" element={<Mockman />} />
       </Routes>
     </div>

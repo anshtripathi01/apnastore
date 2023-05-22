@@ -3,7 +3,10 @@ import { HiOutlineShoppingCart, HiOutlineHeart } from "react-icons/hi";
 import "./header.css";
 import { Searchbar } from "../search/Searchbar";
 import "../search/searchbar.css";
+import { useAuth } from "../../context/authContext";
+import { AiOutlineUser } from "react-icons/ai";
 export const Header = () => {
+  const {token} = useAuth()
   return (
     <header>
       <nav>
@@ -22,8 +25,8 @@ export const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/login" className="nav-link secondary-btn">
-              Login
+            <NavLink to={token ? "/profile" : "/login"} className="nav-link secondary-btn">
+              {token? <AiOutlineUser  /> : "Login"}
             </NavLink>
           </li>
           <li>

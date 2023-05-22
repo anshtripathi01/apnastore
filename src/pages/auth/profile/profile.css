@@ -1,0 +1,21 @@
+.profile_details {
+  width: max-content;
+  box-shadow: var(--box-shadow);
+  margin: 6rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 3rem;
+}
+.profile_nav {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid var(--primary-color);
+}
+
+.profile_nav a {
+  padding: 1rem;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
