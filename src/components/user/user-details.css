@@ -1,0 +1,9 @@
+/* user details css */
+
+.user_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 120px;
+  margin-bottom: 2rem;
+}

@@ -1,0 +1,8 @@
+.signup_form_container{
+    height: 550px;
+}
+.signup_error{
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
