@@ -3,6 +3,7 @@ import "./cart-page.css";
 import { useCart } from "../../context/cartContext";
 import { CartCard } from "./cart-card/CartCard";
 import { calculateCartValue } from "../../utils/cartUtility";
+import { ToastContainer } from "react-toastify";
 
 export const CartPage = () => {
   const {
@@ -17,6 +18,7 @@ export const CartPage = () => {
 
   return (
     <div className="cart_main">
+    <ToastContainer />
       {carts.length ? (
         <h3>My Cart ({carts?.length})</h3>
       ) : (
@@ -36,6 +38,7 @@ export const CartPage = () => {
                   trending,
                   qty,
                 }}
+                key={_id}
               />
             )
           )}

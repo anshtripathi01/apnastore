@@ -24,9 +24,9 @@ export const CartProvider = ({ children }) => {
   }, [token]);
 
   const addToCart = async (product) => {
-    setClick(true);
-    setTimeout(() => setClick(false), 400);
     try {
+      setClick(true);
+      setTimeout(() => setClick(false), 400);
       if (!token) {
         navigate("/login");
         return;
@@ -48,14 +48,16 @@ export const CartProvider = ({ children }) => {
       const { cart } = await res.json();
       dispatch({ type: "SET_CART", payload: cart });
 
-      toast.success("product added in Cart",{autoClose: 500,});
+      toast.success("product added in Cart", { autoClose: 500 });
     } catch (error) {
       console.log("error in adding product", error);
     }
   };
 
   return (
-    <cartContext.Provider value={{ state, dispatch, addToCart, click }}>
+    <cartContext.Provider
+      value={{ state, dispatch, addToCart, click, setClick }}
+    >
       {children}
     </cartContext.Provider>
   );
