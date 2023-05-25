@@ -4,9 +4,11 @@ import "./header.css";
 import { Searchbar } from "../search/Searchbar";
 import "../search/searchbar.css";
 import { useAuth } from "../../context/authContext";
-import { AiOutlineUser } from "react-icons/ai";
+import {  AiOutlineUser } from "react-icons/ai";
+import { useCart } from "../../context/cartContext";
 export const Header = () => {
   const {token} = useAuth()
+  const {state:{carts}} = useCart()
   return (
     <header>
       <nav>
@@ -35,7 +37,9 @@ export const Header = () => {
             </NavLink>
           </li>
           <li>
+          
             <NavLink to="/cart" className="nav-link">
+            {!!carts?.length && <div className="badge">{carts?.length} </div>}
               <HiOutlineShoppingCart size={25} />
             </NavLink>
           </li>

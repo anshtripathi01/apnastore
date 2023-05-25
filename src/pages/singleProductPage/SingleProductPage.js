@@ -3,9 +3,12 @@ import "./single-product.css";
 import { Loader } from "../../components/loader/Loader";
 import { useParams } from "react-router";
 import { AiFillHeart, AiFillStar } from "react-icons/ai";
+import { useCart } from "../../context/cartContext";
+import { ToastContainer } from "react-toastify";
 
 export const SingleProductPage = () => {
     const { productId } = useParams();
+    const {addToCart,state:{carts}} = useCart()
     const [product, setProduct] = useState()
   useEffect(() => {
     const fetchProducts = async () => {
@@ -23,6 +26,7 @@ export const SingleProductPage = () => {
     
   return (
     <div className="detail_main">
+    <ToastContainer />
       {!product ? <Loader /> :
       <div className="single-product-container">
        <div className="single_page_img_box">
@@ -59,7 +63,7 @@ export const SingleProductPage = () => {
           </div>
           <div className="btn-container">
             {product?.inStock ? (
-              <button className="btn">Add To Cart</button>
+              <button className="btn" onClick={()=>addToCart(product)}>{carts?.find(({_id})=>_id === product._id)?"Go To Cart":"Add To Cart"}</button>
             ) : (
               <button className="btn disabled-btn">Out Of Stock</button>
             )}
