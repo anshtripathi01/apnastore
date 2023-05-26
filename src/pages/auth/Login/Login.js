@@ -48,9 +48,10 @@ export const Login = () => {
         JSON.stringify({ user: foundUser, token: encodedToken })
       );
 
-      toast.success("Login successfully...", { containerId: "login" });
-
-      navigate(location.state?.from?.pathname || "/");
+      toast.success("Login successfully...");
+      setTimeout(() => {
+        navigate(location.state?.from?.pathname || "/");
+      }, 2000);
     } catch (error) {
       console.log("internal error");
     }
