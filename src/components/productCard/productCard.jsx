@@ -44,7 +44,7 @@ export const ProductCard = ({
             <span className="discount_price">₹{originalPrice}</span>
           </p>
 
-          <p>60%OFF</p>
+          <p>{Math.round(((originalPrice-price)/originalPrice)*100)}% OFF</p>
         </div>
       </div>
     </>

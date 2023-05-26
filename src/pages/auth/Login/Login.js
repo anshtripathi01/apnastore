@@ -1,15 +1,25 @@
-import { Navigate, useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import "./login.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "../../../context/authContext";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export const Login = () => {
   const { dispatch, credentials, isPassword } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  useEffect(() => {
+    if (
+      location.pathname === "/login" &&
+      JSON.parse(localStorage.getItem("loginDetails"))?.token
+    ) {
+      navigate("/");
+    }
+    // eslint-disable-next-line
+  }, []);
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -28,7 +38,6 @@ export const Login = () => {
           position: toast.POSITION.TOP_CENTER,
         });
       }
-
       dispatch({
         type: "AUTHENTICATE",
         payload: { user: foundUser, token: encodedToken },
@@ -38,10 +47,10 @@ export const Login = () => {
         "loginDetails",
         JSON.stringify({ user: foundUser, token: encodedToken })
       );
-      toast.success("Login successfully...")
-      setTimeout(() => {
-        navigate(location.state?.from?.pathname || "/");
-      }, 2000);
+
+      toast.success("Login successfully...", { containerId: "login" });
+
+      navigate(location.state?.from?.pathname || "/");
     } catch (error) {
       console.log("internal error");
     }
@@ -49,7 +58,6 @@ export const Login = () => {
 
   return (
     <div>
-      {JSON.parse(localStorage.getItem("loginDetails")) && <Navigate to="/" />}
       <ToastContainer />
       <form className="form-container" onSubmit={submitForm}>
         <h2>Login</h2>
@@ -79,7 +87,7 @@ export const Login = () => {
           />
           <button
             className="password_icon"
-            onClick={() => dispatch({type:"SHOW_PASSWORD"})}
+            onClick={() => dispatch({ type: "SHOW_PASSWORD" })}
             type="button"
           >
             {!isPassword ? (
@@ -90,12 +98,17 @@ export const Login = () => {
           </button>
         </div>
         <div className="auth_btn_container">
-        <button type="submit" className="btn">
-          Login
-        </button>
+          <button type="submit" className="btn">
+            Login
+          </button>
         </div>
-       
-        <p>Don't have account? <Link to = "/signup" className="auth-btn">SignUp</Link> </p>
+
+        <p>
+          Don't have account?{" "}
+          <Link to="/signup" className="auth-btn">
+            SignUp
+          </Link>{" "}
+        </p>
       </form>
     </div>
   );

@@ -1,7 +1,8 @@
 import React from "react";
 import "./user-details.css";
+import { useAuth } from "../../context/authContext";
 export const UserDetails = () => {
-  const { user } = JSON.parse(window.localStorage.getItem("loginDetails"));
+  const  {user}  = useAuth()
   return (
     <div className="user_details">
       <h2>Details</h2>
@@ -10,7 +11,7 @@ export const UserDetails = () => {
       </p>
       <p>
         <strong>Email: </strong>
-        {user.email}
+        {user?.email}
       </p>
     </div>
   );

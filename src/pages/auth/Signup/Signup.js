@@ -36,7 +36,7 @@ export const SignUp = () => {
       toast.success("User created Successfully");
       window.localStorage.setItem(
         "loginDetails",
-        JSON.stringify({ user: createdUser, token: encodedToken })
+        JSON.stringify({  token: encodedToken, user: createdUser })
       );
       setTimeout(()=>{
         navigate("/products");
@@ -64,7 +64,6 @@ export const SignUp = () => {
             }
             type="text"
             placeholder="First Name"
-            value={credentials.firstName}
             required
           />
         </div>
@@ -77,7 +76,6 @@ export const SignUp = () => {
             }
             type="text"
             placeholder="Last Name"
-            value={credentials.lastName}
             required
           />
         </div>
@@ -91,7 +89,6 @@ export const SignUp = () => {
             }
             type="email"
             placeholder="Type your email"
-            value={credentials?.email}
             required
           />
         </div>
@@ -105,9 +102,7 @@ export const SignUp = () => {
             }
             type={isPassword ? "text" : "password"}
             placeholder="Enter your password"
-            value={credentials.password}
             required
-            autoComplete="new-password"
           />
           <button
             className="password_icon"
@@ -132,7 +127,7 @@ export const SignUp = () => {
             type={isPassword ? "text" : "password"}
             placeholder="Confirm password"
             required
-            autoComplete="new-password"
+            
           />
           {isError && <p className="signup_error">Passwords do not match</p>}
         </div>

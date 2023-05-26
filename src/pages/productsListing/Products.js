@@ -5,13 +5,16 @@ import { useState } from "react";
 import { AiFillFilter } from "react-icons/ai";
 import { FilterProduct } from "../../components/filters/FilterProduct";
 import { Loader } from "../../components/loader/Loader";
+import { useCart } from "../../context/cartContext";
+import { ToastContainer } from "react-toastify";
 
 export const Products = () => {
   const { filterProducts, isLoading } = useProducts();
   const [mobile, setMobile] = useState(false);
+  const {addToCart,state:{carts}, click} = useCart()
   return (
     <div className="App">
-    
+    <ToastContainer />
       <section>
         <FilterProduct props={{ mobile, setMobile }} />
         <div className="main">
@@ -51,7 +54,18 @@ export const Products = () => {
                 />
                 <div className="btn-container">
                   {inStock ? (
-                    <button className="btn">Add To Cart</button>
+                    <button className="btn" onClick={()=>addToCart({
+              _id,
+              title,
+              descriptions,
+              price,
+              image,
+              originalPrice,
+              rating,
+              reviews,
+              inStock,
+              trending,
+            })} disabled={click}>{carts?.find((product)=>product._id === _id)?"Go To Cart":"Add To Cart"}</button>
                   ) : (
                     <button className="btn disabled-btn" disabled={!inStock}>
                       Out of Stock
