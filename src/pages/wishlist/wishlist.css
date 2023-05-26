@@ -1,0 +1,22 @@
+/* wishlist page css */
+
+.wishlist_container{
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column ;
+    justify-content: space-around; 
+    align-items: center;
+}
+
+.wishlist_products_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.wishlist_card{
+    box-shadow: var(--box-shadow);
+    margin: var(--margin);
+}

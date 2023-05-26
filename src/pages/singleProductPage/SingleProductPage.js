@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./single-product.css";
 import { Loader } from "../../components/loader/Loader";
 import { useParams } from "react-router";
-import { AiFillHeart, AiFillStar } from "react-icons/ai";
+import { AiFillHeart, AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { useCart } from "../../context/cartContext";
 import { ToastContainer } from "react-toastify";
+import { useWish } from "../../context/wishlistContext";
 
 export const SingleProductPage = () => {
     const { productId } = useParams();
     const {addToCart,state:{carts}} = useCart()
+    const {addToWishlist, wishlist} = useWish()
     const [product, setProduct] = useState()
   useEffect(() => {
     const fetchProducts = async () => {
@@ -30,7 +32,7 @@ export const SingleProductPage = () => {
       {!product ? <Loader /> :
       <div className="single-product-container">
        <div className="single_page_img_box">
-       <button><AiFillHeart className="heart_icon"  color="red" size={30} /></button>
+       <button onClick={()=>addToWishlist(product)}>{wishlist?.find(({_id})=> _id === product._id)?<AiFillHeart className="heart_icon"  color="red" size={30} />: <AiOutlineHeart className="heart_icon" color="black" size={30} />}</button>
        <img
           className="singlepage-img"
           src={product?.image}

@@ -6,9 +6,11 @@ import "../search/searchbar.css";
 import { useAuth } from "../../context/authContext";
 import {  AiOutlineUser } from "react-icons/ai";
 import { useCart } from "../../context/cartContext";
+import { useWish } from "../../context/wishlistContext";
 export const Header = () => {
   const {token} = useAuth()
   const {state:{carts}} = useCart()
+  const {wishlist} = useWish()
   return (
     <header>
       <nav>
@@ -33,6 +35,7 @@ export const Header = () => {
           </li>
           <li>
             <NavLink to="/wishlist" className="nav-link">
+            {!!wishlist?.length && <div className="badge wish_badge">{wishlist?.length} </div>}
               <HiOutlineHeart size={25} />
             </NavLink>
           </li>
