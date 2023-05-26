@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../../context/authContext";
 import { useCart } from "../../../context/cartContext";
 import "./cart-card.css";
-import { removeFromCart } from "../../../utils/cartUtility";
+import { removeFromCart, updateQuantity } from "../../../utils/cartUtility";
 export const CartCard = ({
   product: { _id, title, image, price, originalPrice, trending, qty },
 }) => {
@@ -52,11 +52,22 @@ export const CartCard = ({
 
         {/* cart quantity handel */}
         <div className="quantity_container">
-          <button className="qty_btn">
+          <button
+            className="qty_btn"
+            onClick={() =>
+              updateQuantity(token, dispatch, _id, setClick, "decrement")
+            }
+            disabled={(qty === 1 || click) && true}
+          >
             <AiFillMinusCircle />
           </button>
           <p className="qty">{qty}</p>
-          <button className="qty_btn">
+          <button
+            className="qty_btn"
+            onClick={() =>
+              updateQuantity(token, dispatch, _id, setClick, "increment")
+            }
+          >
             <AiFillPlusCircle />
           </button>
         </div>
@@ -64,8 +75,9 @@ export const CartCard = ({
         {/* button footer */}
         <div className="btn-container">
           <button
-            onClick={() => removeFromCart(_id,token,dispatch, setClick) }
-            className="cart_btn" disabled = {click}
+            onClick={() => removeFromCart(_id, token, dispatch, setClick)}
+            className="cart_btn"
+            disabled={click}
           >
             Remove
           </button>

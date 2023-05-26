@@ -9,20 +9,16 @@ export const CartPage = () => {
   const {
     state: { carts },
   } = useCart();
-  
 
-  
-
-  const {totalCartPrice,originalValue} = calculateCartValue(carts)
-  const totalDiscount =  originalValue - totalCartPrice;
+  const { totalCartPrice } = calculateCartValue(carts) ?? "";
 
   return (
     <div className="cart_main">
-    <ToastContainer />
-      {carts.length ? (
+      <ToastContainer />
+      {carts?.length ? (
         <h3>My Cart ({carts?.length})</h3>
       ) : (
-        <h3>Cart is Empty</h3>
+        <h3>Your cart is empty</h3>
       )}
       <div className="cart-container">
         <div className="products-container">
@@ -44,22 +40,20 @@ export const CartPage = () => {
           )}
         </div>
 
-        {!!carts.length && (
+        {!!carts?.length && (
           <div className="price-details-container">
             <h3>Price Details</h3>
-            <hr />
+            {carts?.map(({ _id, title, qty, price }) => (
+              <div key={_id}>
+                <ul>
+                  <p>
+                    {title} ({qty})
+                  </p>
+                  <p>₹{price * qty}</p>
+                </ul>
+              </div>
+            ))}
 
-            <ul>
-              <p>Item QTY: ({carts?.length})</p>
-              <p>₹{originalValue}</p>
-            </ul>
-
-            <ul>
-              <p>Discount:</p> <p>-₹{totalDiscount}</p>
-            </ul>
-            <ul>
-              <p>Delivery Charges</p> <p>FREE</p>
-            </ul>
             <ul className="total_price">
               <p>
                 <strong>Total Price:</strong>

@@ -31,7 +31,7 @@
 .price-details-container {
   box-shadow: var(--box-shadow);
   width: 350px;
-  height: 350px;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -43,7 +43,6 @@
 .price-details-container h3 {
   width: 100%;
   padding: var(--padding);
-  /* align-self: center; */
   text-align: center;
   border-bottom: groove 2px;
 }
@@ -51,6 +50,7 @@
   text-align: justify;
   display: flex;
   justify-content: space-between;
+  margin: 0.8rem;
 }
 .checkout-btn {
   border-radius: var(--border-radius);
@@ -81,9 +81,9 @@
   }
 
   .price-details-container {
+    height: max-content;
     top: 85px;
     flex-basis: 40%;
-    position: sticky;
   }
 }
 

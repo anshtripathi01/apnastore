@@ -17,6 +17,31 @@ export const fetchCart = async (token, dispatch) => {
   }
 };
 
+export const updateQuantity = async (
+  token,
+  dispatch,
+  productId,
+  setClick,
+  type
+) => {
+  try {
+    setClick(true);
+    setTimeout(() => setClick(false), 400);
+    const res = await fetch(`/api/user/cart/${productId}`, {
+      method: "POST",
+      headers: {
+        authorization: token,
+      },
+      body: JSON.stringify({ action: { type } }),
+    });
+
+    const { cart } = await res.json();
+    dispatch({ type: "SET_CART", payload: cart });
+  } catch (error) {
+    console.log("update quantity error");
+  }
+};
+
 export const removeFromCart = async (productId, token, dispatch, setClick) => {
   try {
     setClick(true);
@@ -40,7 +65,7 @@ export const calculateCartValue = (carts) =>
   carts?.reduce(
     (total, { price, originalPrice, qty }) => ({
       ...total,
-      totalCartPrice: (total.totalCartPrice + price) * qty,
+      totalCartPrice: total.totalCartPrice + price * qty,
       originalValue: total.originalValue + originalPrice * qty,
     }),
     { totalCartPrice: 0, originalValue: 0 }

@@ -32,7 +32,7 @@ export const CartProvider = ({ children }) => {
         return;
       }
 
-      if (state?.carts.find(({ _id }) => _id === product._id)) {
+      if (state?.carts?.find(({ _id }) => _id === product._id)) {
         navigate("/cart");
         return;
       }
