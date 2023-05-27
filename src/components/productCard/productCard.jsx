@@ -18,7 +18,7 @@ export const ProductCard = ({
   },
 }) => {
 const {token} = useAuth();
-  const {addToWishlist, wishlist, wishDispatcher} = useWish()
+  const {addToWishlist, wishlist, wishDispatcher, click, setClick} = useWish()
   return (
     <>
       <div className="card_header">
@@ -29,8 +29,8 @@ const {token} = useAuth();
         )}
         {wishlist?.find((product) => product._id === _id) ? (
                   <button
-                  onClick={() => removeFromWishlist(_id, token, wishDispatcher)}
-                    
+                  onClick={() => removeFromWishlist(_id, token, wishDispatcher, setClick)}
+                   disabled={click} 
                   >
                     <AiFillHeart className="heart_icon" color="red" size={30} />{" "}
                   </button>
@@ -46,7 +46,7 @@ const {token} = useAuth();
                         reviews,
                         trending,
                       })
-                    } >
+                    } disabled={click}>
                     <AiOutlineHeart
                       className="heart_icon"
                       color="black"

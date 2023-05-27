@@ -9,11 +9,10 @@ import { useAuth } from "../../context/authContext";
 import { useCart } from "../../context/cartContext";
 
 export const Wishlist = () => {
-  const { wishlist, addToWishlist, wishDispatcher } = useWish();
+  const { wishlist, wishDispatcher, click, setClick } = useWish();
   const {
     addToCart,
     state: { carts },
-    click,
   } = useCart();
   const { token } = useAuth();
 
@@ -47,40 +46,14 @@ export const Wishlist = () => {
                     <h5>Trending</h5>
                   </div>
                 )}
-                {wishlist?.find((product) => product._id === _id) ? (
-                  <button
-                    onClick={() =>
-                      removeFromWishlist(_id, token, wishDispatcher)
-                    }
-                  >
-                    <AiFillDelete
-                      className="heart_icon"
-                      color="red"
-                      size={30}
-                    />{" "}
-                  </button>
-                ) : (
-                  <button
-                    onClick={() =>
-                      addToWishlist({
-                        _id,
-                        title,
-                        price,
-                        image,
-                        originalPrice,
-                        rating,
-                        reviews,
-                        trending,
-                      })
-                    }
-                  >
-                    <AiFillDelete
-                      className="heart_icon"
-                      color="black"
-                      size={30}
-                    />{" "}
-                  </button>
-                )}
+                <button
+                  onClick={() =>
+                    removeFromWishlist(_id, token, wishDispatcher, setClick)
+                  }
+                  disabled={click}
+                >
+                  <AiFillDelete className="heart_icon" color="red" size={30} />{" "}
+                </button>
                 <Link to={`/products/${_id}`}>
                   <img src={image} alt="Card-img" className="card_img" />
                 </Link>

@@ -51,7 +51,7 @@ useEffect(() => {
     }
   }
     return(
-        <wishlistContext.Provider value={{...state, wishDispatcher, addToWishlist, click}}>
+        <wishlistContext.Provider value={{...state, wishDispatcher, addToWishlist, click, setClick}}>
             {children}
         </wishlistContext.Provider>
     )

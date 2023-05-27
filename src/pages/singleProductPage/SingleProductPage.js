@@ -15,6 +15,8 @@ export const SingleProductPage = () => {
   const {
     addToCart,
     state: { carts },
+    click,
+    setClick,
   } = useCart();
   const { addToWishlist, wishlist, wishDispatcher } = useWish();
   const [product, setProduct] = useState();
@@ -43,13 +45,19 @@ export const SingleProductPage = () => {
             {wishlist?.find(({ _id }) => _id === product._id) ? (
               <button
                 onClick={() =>
-                  removeFromWishlist(product._id, token, wishDispatcher)
+                  removeFromWishlist(
+                    product._id,
+                    token,
+                    wishDispatcher,
+                    setClick
+                  )
                 }
+                disabled={click}
               >
                 <AiFillHeart className="heart_icon" color="red" size={30} />
               </button>
             ) : (
-              <button onClick={() => addToWishlist(product)}>
+              <button onClick={() => addToWishlist(product)} disabled={click}>
                 <AiOutlineHeart
                   className="heart_icon"
                   color="black"
@@ -89,7 +97,7 @@ export const SingleProductPage = () => {
             </div>
             <div className="btn-container">
               {product?.inStock ? (
-                <button className="btn" onClick={() => addToCart(product)}>
+                <button className="btn" onClick={() => addToCart(product)} disabled={click}>
                   {carts?.find(({ _id }) => _id === product._id)
                     ? "Go To Cart"
                     : "Add To Cart"}

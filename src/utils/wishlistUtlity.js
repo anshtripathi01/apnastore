@@ -17,8 +17,15 @@ export const fetchWish = async (token, dispatch) => {
   }
 };
 
-export const removeFromWishlist = async (productId, token, dispatch) => {
+export const removeFromWishlist = async (
+  productId,
+  token,
+  dispatch,
+  setClick
+) => {
   try {
+    setClick(true);
+    setTimeout(() => setClick(false), 400);
     const res = await fetch(`/api/user/wishlist/${productId}`, {
       method: "DELETE",
       headers: {

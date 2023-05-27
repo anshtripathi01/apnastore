@@ -40,7 +40,10 @@ export const CartCard = ({
         )}
         {wishlist?.find((product) => product._id === _id) ? (
           <button
-            onClick={() => removeFromWishlist(_id, token, wishDispatcher)}
+            onClick={() =>
+              removeFromWishlist(_id, token, wishDispatcher, setClick)
+            }
+            disabled={click}
           >
             <AiFillHeart className="heart_icon" color="red" size={30} />{" "}
           </button>
@@ -58,6 +61,7 @@ export const CartCard = ({
                 trending,
               })
             }
+            disabled={click}
           >
             <AiOutlineHeart className="heart_icon" color="black" size={30} />{" "}
           </button>
