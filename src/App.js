@@ -10,6 +10,7 @@ import { Profile } from "./pages/auth/profile/Profile";
 import { RequiresAuth } from "./pages/auth/Private/RequiresAuth";
 import { SignUp } from "./pages/auth/Signup/Signup";
 import { CartPage } from "./pages/cart/CartPage";
+import { Wishlist } from "./pages/wishlist/Wishlist";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/products/:productId" element={<SingleProductPage />} />
         <Route path="/cart" element = {<RequiresAuth><CartPage /></RequiresAuth>} />
+        <Route path="/wishlist" element = {<RequiresAuth><Wishlist /></RequiresAuth>} />
         <Route path="/login" element = {<Login />} />
         <Route path="/profile" element = {<RequiresAuth><Profile /></RequiresAuth>} /> 
         <Route path="/signup"  element = {<SignUp />}/>

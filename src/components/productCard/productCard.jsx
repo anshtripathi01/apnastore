@@ -1,6 +1,9 @@
-import { AiFillHeart, AiFillStar, AiFillEye } from "react-icons/ai";
+import { AiFillHeart, AiFillStar, AiFillEye, AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./product-card.css";
+import { useWish } from "../../context/wishlistContext";
+import { removeFromWishlist } from "../../utils/wishlistUtlity";
+import { useAuth } from "../../context/authContext";
 
 export const ProductCard = ({
   product: {
@@ -14,6 +17,8 @@ export const ProductCard = ({
     trending,
   },
 }) => {
+const {token} = useAuth();
+  const {addToWishlist, wishlist, wishDispatcher, click, setClick} = useWish()
   return (
     <>
       <div className="card_header">
@@ -22,7 +27,33 @@ export const ProductCard = ({
             <h5>Trending</h5>
           </div>
         )}
-        <AiFillHeart className="heart_icon" color="red" size={30} />
+        {wishlist?.find((product) => product._id === _id) ? (
+                  <button
+                  onClick={() => removeFromWishlist(_id, token, wishDispatcher, setClick)}
+                   disabled={click} 
+                  >
+                    <AiFillHeart className="heart_icon" color="red" size={30} />{" "}
+                  </button>
+                ) : (
+                  <button onClick={() =>
+                      addToWishlist({
+                        _id,
+                        title,
+                        price,
+                        image,
+                        originalPrice,
+                        rating,
+                        reviews,
+                        trending,
+                      })
+                    } disabled={click}>
+                    <AiOutlineHeart
+                      className="heart_icon"
+                      color="black"
+                      size={30}
+                    />{" "}
+                  </button>
+                )}
         <Link to={`/products/${_id}`}>
           <img src={image} alt="Card-img" className="card_img" />
         </Link>

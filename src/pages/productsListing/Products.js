@@ -11,10 +11,14 @@ import { ToastContainer } from "react-toastify";
 export const Products = () => {
   const { filterProducts, isLoading } = useProducts();
   const [mobile, setMobile] = useState(false);
-  const {addToCart,state:{carts}, click} = useCart()
+  const {
+    addToCart,
+    state: { carts },
+    click,
+  } = useCart();
   return (
     <div className="App">
-    <ToastContainer />
+      <ToastContainer />
       <section>
         <FilterProduct props={{ mobile, setMobile }} />
         <div className="main">
@@ -24,7 +28,8 @@ export const Products = () => {
               <AiFillFilter color="red" size={30} />
             </button>
           </div>
-          {(isLoading && <Loader /> )|| (!filterProducts.length && <h4>No Products found !!!</h4>)}
+          {(isLoading && <Loader />) ||
+            (!filterProducts.length && <h4>No Products found !!!</h4>)}
           {filterProducts?.map(
             ({
               _id,
@@ -54,18 +59,28 @@ export const Products = () => {
                 />
                 <div className="btn-container">
                   {inStock ? (
-                    <button className="btn" onClick={()=>addToCart({
-              _id,
-              title,
-              descriptions,
-              price,
-              image,
-              originalPrice,
-              rating,
-              reviews,
-              inStock,
-              trending,
-            })} disabled={click}>{carts?.find((product)=>product._id === _id)?"Go To Cart":"Add To Cart"}</button>
+                    <button
+                      className="btn"
+                      onClick={() =>
+                        addToCart({
+                          _id,
+                          title,
+                          descriptions,
+                          price,
+                          image,
+                          originalPrice,
+                          rating,
+                          reviews,
+                          inStock,
+                          trending,
+                        })
+                      }
+                      disabled={click}
+                    >
+                      {carts?.find((product) => product._id === _id)
+                        ? "Go To Cart"
+                        : "Add To Cart"}
+                    </button>
                   ) : (
                     <button className="btn disabled-btn" disabled={!inStock}>
                       Out of Stock
