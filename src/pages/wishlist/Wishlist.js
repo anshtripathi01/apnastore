@@ -3,12 +3,7 @@ import "./wishlist.css";
 import { ToastContainer } from "react-toastify";
 import { useWish } from "../../context/wishlistContext";
 import { Link } from "react-router-dom";
-import {
-  AiFillEye,
-  AiFillHeart,
-  AiFillStar,
-  AiOutlineHeart,
-} from "react-icons/ai";
+import { AiFillDelete, AiFillEye, AiFillStar } from "react-icons/ai";
 import { removeFromWishlist } from "../../utils/wishlistUtlity";
 import { useAuth } from "../../context/authContext";
 import { useCart } from "../../context/cartContext";
@@ -58,7 +53,11 @@ export const Wishlist = () => {
                       removeFromWishlist(_id, token, wishDispatcher)
                     }
                   >
-                    <AiFillHeart className="heart_icon" color="red" size={30} />{" "}
+                    <AiFillDelete
+                      className="heart_icon"
+                      color="red"
+                      size={30}
+                    />{" "}
                   </button>
                 ) : (
                   <button
@@ -75,7 +74,7 @@ export const Wishlist = () => {
                       })
                     }
                   >
-                    <AiOutlineHeart
+                    <AiFillDelete
                       className="heart_icon"
                       color="black"
                       size={30}
@@ -104,10 +103,11 @@ export const Wishlist = () => {
                   </p>
 
                   <p>
+                    (
                     {Math.round(
                       ((originalPrice - price) / originalPrice) * 100
                     )}
-                    % OFF
+                    % OFF)
                   </p>
                 </div>
               </div>
@@ -133,7 +133,7 @@ export const Wishlist = () => {
                 >
                   {carts?.find((product) => product._id === _id)
                     ? "Go To Cart"
-                    : "Move to cart"}
+                    : "Add to Cart"}
                 </button>
               </div>
             </div>

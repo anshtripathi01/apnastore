@@ -17,12 +17,15 @@
 }
 
 .wishlist_card {
+  width: 200px;
+  height: 350px;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
-  box-shadow: var(--box-shadow);
   margin: var(--margin);
-  width: 200px;
-  height: 325px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .wish_btn {
