@@ -1,22 +1,35 @@
 /* wishlist page css */
 
-.wishlist_container{
-    margin-top: 6rem;
-    display: flex;
-    flex-direction: column ;
-    justify-content: space-around; 
-    align-items: center;
+.wishlist_container {
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.wishlist_products_container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
+.wishlist_products_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
 }
 
-.wishlist_card{
-    box-shadow: var(--box-shadow);
-    margin: var(--margin);
+.wishlist_card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--box-shadow);
+  margin: var(--margin);
+  width: 200px;
+  height: 325px;
+}
+
+.wish_btn {
+  text-align: center;
+  padding: 0.2rem;
+  width: 200px;
+}
+.wish_btn_container {
+  height: max-content;
 }

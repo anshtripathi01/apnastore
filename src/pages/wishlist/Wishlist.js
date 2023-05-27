@@ -11,11 +11,17 @@ import {
 } from "react-icons/ai";
 import { removeFromWishlist } from "../../utils/wishlistUtlity";
 import { useAuth } from "../../context/authContext";
-
+import { useCart } from "../../context/cartContext";
 
 export const Wishlist = () => {
   const { wishlist, addToWishlist, wishDispatcher } = useWish();
-  const {token} = useAuth()
+  const {
+    addToCart,
+    state: { carts },
+    click,
+  } = useCart();
+  const { token } = useAuth();
+
   return (
     <div className="wishlist_container">
       <ToastContainer />
@@ -24,7 +30,6 @@ export const Wishlist = () => {
       ) : (
         <h3>Your wishlist is empty</h3>
       )}
-
       <div className="wishlist_products_container">
         {wishlist?.map(
           ({
@@ -33,6 +38,8 @@ export const Wishlist = () => {
             image,
             price,
             originalPrice,
+            descriptions,
+            inStock,
             trending,
             rating,
             reviews,
@@ -47,13 +54,15 @@ export const Wishlist = () => {
                 )}
                 {wishlist?.find((product) => product._id === _id) ? (
                   <button
-                  onClick={() => removeFromWishlist(_id, token, wishDispatcher)}
-                    
+                    onClick={() =>
+                      removeFromWishlist(_id, token, wishDispatcher)
+                    }
                   >
                     <AiFillHeart className="heart_icon" color="red" size={30} />{" "}
                   </button>
                 ) : (
-                  <button onClick={() =>
+                  <button
+                    onClick={() =>
                       addToWishlist({
                         _id,
                         title,
@@ -64,7 +73,8 @@ export const Wishlist = () => {
                         reviews,
                         trending,
                       })
-                    } >
+                    }
+                  >
                     <AiOutlineHeart
                       className="heart_icon"
                       color="black"
@@ -102,8 +112,29 @@ export const Wishlist = () => {
                 </div>
               </div>
 
-              <div className="btn-container">
-                <button className="btn">Move To Cart</button>
+              <div className="wish_btn_container">
+                <button
+                  onClick={() =>
+                    addToCart({
+                      _id,
+                      title,
+                      descriptions,
+                      price,
+                      image,
+                      originalPrice,
+                      rating,
+                      reviews,
+                      inStock,
+                      trending,
+                    })
+                  }
+                  className="wish_btn btn"
+                  disabled={click}
+                >
+                  {carts?.find((product) => product._id === _id)
+                    ? "Go To Cart"
+                    : "Move to cart"}
+                </button>
               </div>
             </div>
           )

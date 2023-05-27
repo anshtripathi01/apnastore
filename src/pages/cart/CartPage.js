@@ -23,7 +23,17 @@ export const CartPage = () => {
       <div className="cart-container">
         <div className="products-container">
           {carts?.map(
-            ({ _id, title, image, price, originalPrice, trending, qty }) => (
+            ({
+              _id,
+              title,
+              image,
+              price,
+              originalPrice,
+              trending,
+              rating,
+              reviews,
+              qty,
+            }) => (
               <CartCard
                 product={{
                   _id,
@@ -32,6 +42,8 @@ export const CartPage = () => {
                   price,
                   originalPrice,
                   trending,
+                  reviews,
+                  rating,
                   qty,
                 }}
                 key={_id}
