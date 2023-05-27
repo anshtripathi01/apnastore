@@ -40,3 +40,27 @@ export const removeFromWishlist = async (
     console.log("remove wishlist error", error);
   }
 };
+
+export const moveToCart = async (product, token, dispatch, setClick) => {
+  try {
+    setClick(true);
+    setTimeout(() => setClick(false), 400);
+
+    const res = await fetch("/api/user/cart", {
+      method: "POST",
+      body: JSON.stringify({ product }),
+      headers: {
+        authorization: token,
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+
+    const { cart } = await res.json();
+
+    dispatch({ type: "SET_CART", payload: cart });
+
+    toast.success("product added in Cart", { autoClose: 500 });
+  } catch (error) {
+    console.log("error in adding product", error);
+  }
+};

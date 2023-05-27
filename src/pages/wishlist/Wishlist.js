@@ -1,21 +1,32 @@
 import React from "react";
 import "./wishlist.css";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { useWish } from "../../context/wishlistContext";
 import { Link } from "react-router-dom";
 import { AiFillDelete, AiFillEye, AiFillStar } from "react-icons/ai";
-import { removeFromWishlist } from "../../utils/wishlistUtlity";
+import { moveToCart, removeFromWishlist } from "../../utils/wishlistUtlity";
 import { useAuth } from "../../context/authContext";
 import { useCart } from "../../context/cartContext";
+import { updateQuantity } from "../../utils/cartUtility";
 
 export const Wishlist = () => {
   const { wishlist, wishDispatcher, click, setClick } = useWish();
   const {
-    addToCart,
+    dispatch,
     state: { carts },
   } = useCart();
   const { token } = useAuth();
 
+  const handleMoveToCart = (product) => {
+    carts?.find(({ _id }) => _id === product._id)
+      ? updateQuantity(token, dispatch, product?._id, setClick, "increment") &&
+        toast.success("product added in cart", { autoClose: 500 })
+      : moveToCart(product, token, dispatch, setClick);
+    setTimeout(
+      () => removeFromWishlist(product._id, token, dispatch, setClick),
+      1000
+    );
+  };
   return (
     <div className="wishlist_container">
       <ToastContainer />
@@ -88,25 +99,24 @@ export const Wishlist = () => {
               <div className="wish_btn_container">
                 <button
                   onClick={() =>
-                    addToCart({
+                    handleMoveToCart({
                       _id,
                       title,
-                      descriptions,
-                      price,
                       image,
+                      price,
                       originalPrice,
-                      rating,
-                      reviews,
+                      descriptions,
                       inStock,
                       trending,
+                      rating,
+                      reviews,
+                      qty,
                     })
                   }
                   className="wish_btn btn"
                   disabled={click}
                 >
-                  {carts?.find((product) => product._id === _id)
-                    ? "Go To Cart"
-                    : "Add to Cart"}
+                  Move to Cart
                 </button>
               </div>
             </div>

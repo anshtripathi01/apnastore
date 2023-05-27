@@ -6,22 +6,20 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 import { useCart } from "./cartContext";
 
+const wishlistContext = createContext();
 
-const wishlistContext = createContext()
+export const WishlistProvider = ({ children }) => {
+  const navigate = useNavigate();
+  const { click, setClick } = useCart();
+  const { token } = useAuth();
+  const [state, wishDispatcher] = useReducer(wishlistReducer, { wishlist: [] });
 
-
-export const WishlistProvider = ({children})=>{
-    const navigate = useNavigate();
-    const {click, setClick} = useCart()
-    const {token} = useAuth()
-const [state, wishDispatcher] = useReducer(wishlistReducer, {wishlist:[]})
-
-useEffect(() => {
+  useEffect(() => {
     fetchWish(token, wishDispatcher);
-  }, [token]);
+  }, [token, state.wishlist]);
 
-  const addToWishlist = async(product) => {
- try {
+  const addToWishlist = async (product) => {
+    try {
       setClick(true);
       setTimeout(() => setClick(false), 400);
       if (!token) {
@@ -49,12 +47,14 @@ useEffect(() => {
     } catch (error) {
       console.log("error in adding product", error);
     }
-  }
-    return(
-        <wishlistContext.Provider value={{...state, wishDispatcher, addToWishlist, click, setClick}}>
-            {children}
-        </wishlistContext.Provider>
-    )
-}
+  };
+  return (
+    <wishlistContext.Provider
+      value={{ ...state, wishDispatcher, addToWishlist, click, setClick }}
+    >
+      {children}
+    </wishlistContext.Provider>
+  );
+};
 
-export const useWish = () => useContext(wishlistContext)
+export const useWish = () => useContext(wishlistContext);
