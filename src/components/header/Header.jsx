@@ -4,13 +4,15 @@ import "./header.css";
 import { Searchbar } from "../search/Searchbar";
 import "../search/searchbar.css";
 import { useAuth } from "../../context/authContext";
-import {  AiOutlineUser } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
 import { useCart } from "../../context/cartContext";
 import { useWish } from "../../context/wishlistContext";
 export const Header = () => {
-  const {token} = useAuth()
-  const {state:{carts}} = useCart()
-  const {wishlist} = useWish()
+  const { token } = useAuth();
+  const {
+    state: { carts },
+  } = useCart();
+  const { wishlist } = useWish();
   return (
     <header>
       <nav>
@@ -29,20 +31,24 @@ export const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={token ? "/profile" : "/login"} className="nav-link secondary-btn">
-              {token? <AiOutlineUser  /> : "Login"}
+            <NavLink
+              to={token ? "/profile/details" : "/login"}
+              className="nav-link secondary-btn"
+            >
+              {token ? <AiOutlineUser /> : "Login"}
             </NavLink>
           </li>
           <li>
             <NavLink to="/wishlist" className="nav-link">
-            {!!wishlist?.length && <div className="badge wish_badge">{wishlist?.length} </div>}
+              {!!wishlist?.length && (
+                <div className="badge wish_badge">{wishlist?.length} </div>
+              )}
               <HiOutlineHeart size={25} />
             </NavLink>
           </li>
           <li>
-          
             <NavLink to="/cart" className="nav-link">
-            {!!carts?.length && <div className="badge">{carts?.length} </div>}
+              {!!carts?.length && <div className="badge">{carts?.length} </div>}
               <HiOutlineShoppingCart size={25} />
             </NavLink>
           </li>

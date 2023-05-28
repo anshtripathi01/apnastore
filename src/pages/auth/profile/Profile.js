@@ -1,9 +1,11 @@
 import { useAuth } from "../../../context/authContext";
 import "./profile.css";
 import { ToastContainer, toast } from "react-toastify";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { UserDetails } from "../../../components/user/UserDetails";
+import { Address } from "../../../components/address/Address";
 export const Profile = () => {
+  const location = useLocation();
   const { dispatch } = useAuth();
 
   const logoutHandal = () => {
@@ -14,20 +16,33 @@ export const Profile = () => {
     }, 2000);
   };
 
+  const activeTab = ({ isActive }) => ({
+    fontWeight: isActive && "bold",
+    borderBottom: isActive && "5px solid var(--primary-color)",
+  });
+
   return (
     <div className="profile_details">
       <ToastContainer />
       <div className="profile_nav">
-        <NavLink to="/profile">User details</NavLink>
-        <NavLink to="/profile/address">Address</NavLink>
-        <NavLink to="/profile/orders">Order History</NavLink>
+        <NavLink style={activeTab} to="/profile/details">
+          User details
+        </NavLink>
+        <NavLink style={activeTab} to="/profile/address">
+          Address
+        </NavLink>
+        <NavLink style={activeTab} to="/profile/orders">
+          Order History
+        </NavLink>
       </div>
 
-      <UserDetails />
+      {location.pathname === "/profile/details" ? <UserDetails /> : <Address />}
       <div className="auth_btn_container">
-      <button className="btn" type="button" onClick={logoutHandal}>
-        Logout
-      </button>
+        {location.pathname === "/profile/details" && (
+          <button className="btn" type="button" onClick={logoutHandal}>
+            Logout
+          </button>
+        )}
       </div>
     </div>
   );
