@@ -20,11 +20,43 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:productId" element={<SingleProductPage />} />
-        <Route path="/cart" element = {<RequiresAuth><CartPage /></RequiresAuth>} />
-        <Route path="/wishlist" element = {<RequiresAuth><Wishlist /></RequiresAuth>} />
-        <Route path="/login" element = {<Login />} />
-        <Route path="/profile" element = {<RequiresAuth><Profile /></RequiresAuth>} /> 
-        <Route path="/signup"  element = {<SignUp />}/>
+        <Route
+          path="/cart"
+          element={
+            <RequiresAuth>
+              <CartPage />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <RequiresAuth>
+              <Wishlist />
+            </RequiresAuth>
+          }
+        />
+        <Route path="/login" element={<Login />} />
+        <Route>
+          <Route
+            path="/profile/details"
+            index={true}
+            element={
+              <RequiresAuth>
+                <Profile />
+              </RequiresAuth>
+            }
+          />
+          <Route
+            path="/profile/address"
+            element={
+              <RequiresAuth>
+                <Profile />
+              </RequiresAuth>
+            }
+          />
+        </Route>
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/mock" element={<Mockman />} />
       </Routes>
     </div>

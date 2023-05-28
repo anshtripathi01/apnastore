@@ -11,11 +11,15 @@
 .profile_nav {
   display: flex;
   justify-content: space-evenly;
-  border: 1px solid var(--primary-color);
+  border-top: 5px solid var(--primary-color);
+  
+
 }
 
 .profile_nav a {
   padding: 1rem;
   color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  /* border: 1px solid var(--primary-color); */
+  border-bottom: none;
 }
+
