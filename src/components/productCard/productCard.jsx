@@ -1,4 +1,9 @@
-import { AiFillHeart, AiFillStar, AiFillEye, AiOutlineHeart } from "react-icons/ai";
+import {
+  AiFillHeart,
+  AiFillStar,
+  AiFillEye,
+  AiOutlineHeart,
+} from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./product-card.css";
 import { useWish } from "../../context/wishlistContext";
@@ -17,8 +22,9 @@ export const ProductCard = ({
     trending,
   },
 }) => {
-const {token} = useAuth();
-  const {addToWishlist, wishlist, wishDispatcher, click, setClick} = useWish()
+  const { token } = useAuth();
+  const { addToWishlist, wishlist, wishDispatcher, click, setClick } =
+    useWish();
   return (
     <>
       <div className="card_header">
@@ -28,32 +34,33 @@ const {token} = useAuth();
           </div>
         )}
         {wishlist?.find((product) => product._id === _id) ? (
-                  <button
-                  onClick={() => removeFromWishlist(_id, token, wishDispatcher, setClick)}
-                   disabled={click} 
-                  >
-                    <AiFillHeart className="heart_icon" color="red" size={30} />{" "}
-                  </button>
-                ) : (
-                  <button onClick={() =>
-                      addToWishlist({
-                        _id,
-                        title,
-                        price,
-                        image,
-                        originalPrice,
-                        rating,
-                        reviews,
-                        trending,
-                      })
-                    } disabled={click}>
-                    <AiOutlineHeart
-                      className="heart_icon"
-                      color="black"
-                      size={30}
-                    />{" "}
-                  </button>
-                )}
+          <button
+            onClick={() =>
+              removeFromWishlist(_id, token, wishDispatcher, setClick)
+            }
+            disabled={click}
+          >
+            <AiFillHeart className="heart_icon" color="red" size={30} />{" "}
+          </button>
+        ) : (
+          <button
+            onClick={() =>
+              addToWishlist({
+                _id,
+                title,
+                price,
+                image,
+                originalPrice,
+                rating,
+                reviews,
+                trending,
+              })
+            }
+            disabled={click}
+          >
+            <AiOutlineHeart className="heart_icon" color="black" size={30} />{" "}
+          </button>
+        )}
         <Link to={`/products/${_id}`}>
           <img src={image} alt="Card-img" className="card_img" />
         </Link>
@@ -75,7 +82,9 @@ const {token} = useAuth();
             <span className="discount_price">₹{originalPrice}</span>
           </p>
 
-          <p>{Math.round(((originalPrice-price)/originalPrice)*100)}% OFF</p>
+          <p>
+            ({Math.round(((originalPrice - price) / originalPrice) * 100)}% OFF)
+          </p>
         </div>
       </div>
     </>

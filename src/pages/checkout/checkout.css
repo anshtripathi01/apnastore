@@ -1,0 +1,30 @@
+.checkout_container{
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.checkout_address{
+   
+    margin-top: 1rem;
+    width: 340px;
+    display: flex;
+    border-left: 5px solid var(--primary-color);
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.checkout_address input{
+    margin: auto 1rem;
+}
+@media screen and (min-width:768px) {
+    .checkout_container{
+      flex-direction: row;
+    }
+
+    .checkout_address{
+ width: 400px;
+    }
+}

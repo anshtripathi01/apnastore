@@ -18,6 +18,7 @@ export const ProfileProvider = ({ children }) => {
         country: "INDIA",
       },
     ],
+    orders: [],
   });
 
   return (

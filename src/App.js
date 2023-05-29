@@ -11,6 +11,7 @@ import { RequiresAuth } from "./pages/auth/Private/RequiresAuth";
 import { SignUp } from "./pages/auth/Signup/Signup";
 import { CartPage } from "./pages/cart/CartPage";
 import { Wishlist } from "./pages/wishlist/Wishlist";
+import { Checkout } from "./pages/checkout/Checkout";
 
 function App() {
   return (
@@ -55,8 +56,37 @@ function App() {
               </RequiresAuth>
             }
           />
+          <Route
+            path="/profile/orders"
+            element={
+              <RequiresAuth>
+                <Profile />
+              </RequiresAuth>
+            }
+          />
         </Route>
         <Route path="/signup" element={<SignUp />} />
+
+        <Route path="/checkout">
+          <Route
+            path="/checkout"
+            index={true}
+            element={
+              <RequiresAuth>
+                <Checkout />
+              </RequiresAuth>
+            }
+          />
+          <Route
+            path="/checkout/order_summary"
+            element={
+              <RequiresAuth>
+                <Checkout />
+              </RequiresAuth>
+            }
+          />
+        </Route>
+
         <Route path="/mock" element={<Mockman />} />
       </Routes>
     </div>
