@@ -30,7 +30,7 @@ An Ecommerce app where you can a product of your choice
 
 ## Authors
 
-- [@anshtripathi01](https://www.github.com/anshtripathi01)
+- [@anshtripathi](https://www.github.com/anshtripathi01)
 
 
 ## Demo
