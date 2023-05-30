@@ -14,7 +14,12 @@
 }
 
 .mobile_search {
+  position: fixed;
   display: block;
+  top: 80px;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
 .desktop_search {
   text-align: center;

@@ -99,6 +99,21 @@ export const products = [
     image:
       "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2475811/2018/4/20/11524206887991-Roadster-Men-Tshirts-9291524206887825-1.jpg",
   },
+
+  {
+    _id: "01a6deee-4e51-49b3-ba9f-80d0f138c521",
+    title: "Libas",
+    descriptions:
+      "Women Sea Green Floral Printed Kurta with Palazzos & Dupatta",
+    originalPrice: 2799,
+    price: 1007,
+    categoryName: "women",
+    rating: 4.3,
+    reviews: "7.3k",
+    inStock: true,
+    image:
+      "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2021/4/5/e59c4735-e5c0-4c08-8ef5-7c3ce6cee96c1617599157870-1.jpg",
+  },
   {
     _id: "27edad4a-535f-49cc-9485-c57ec9b2b784",
     title: "BLive T-Shirt for Kids",
@@ -112,6 +127,7 @@ export const products = [
     image:
       "https://rukminim1.flixcart.com/image/832/832/xif0q/kids-t-shirt/c/m/c/14-15-years-bnvpoloboy-plain-blive-original-imagmeyyeqpf2txh.jpeg?q=70",
   },
+
   {
     _id: "4e1ddd8b-2ecf-47e8-989f-17920465f88c",
     title: "Fubar Shirt for Men",
@@ -139,6 +155,19 @@ export const products = [
       "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/13601582/2021/6/28/b3936098-a75b-4068-b4c1-24ae60b924031624874368878-Roadster-Women-Tshirts-2901624874368395-1.jpg",
   },
   {
+    _id: "cb873e35-e02a-4eee-a5bc-bfb591a6dcfb",
+    title: "A.T.U.N.",
+    descriptions: "A T U N Cream-Coloured Dress",
+    originalPrice: 2499,
+    price: 674,
+    categoryName: "kids",
+    rating: 4,
+    reviews: "10k",
+    inStock: true,
+    image:
+      "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/21574848/2023/1/16/be1ed213-266f-48bc-a6f9-a4e65557f8151673888685137ATUNCream-ColouredDress1.jpg",
+  },
+  {
     _id: "73a5dda4-f56c-4adb-8956-ead9cf27b916",
     title: "Nike shoes for Men",
     descriptions: "Men Flex Training Shoes (White)",
@@ -164,7 +193,20 @@ export const products = [
     image:
       "https://rukminim1.flixcart.com/image/832/832/l05lx8w0/kids-t-shirt/s/x/d/15-16-years-boy22-pt01-bgrn-alan-jones-original-imagcyfrjg2mhnyj.jpeg?q=70",
   },
-
+  {
+    _id: "63037b8f-8fde-4a5c-a7c8-b806953cb64c",
+    title: "Sangria",
+    descriptions:
+      "Women Green & Golden Ethnic Motifs Printed Pure Cotton Kurta with Trousers",
+    originalPrice: 2399,
+    price: 599,
+    categoryName: "women",
+    rating: 4,
+    reviews: "1.9k",
+    inStock: true,
+    image:
+      "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/13781282/2021/6/15/dfa7ac6b-2352-41a4-8252-1b4116facc9c1623750171945-Sangria-Women-Kurta-Sets-7431623750170815-1.jpg",
+  },
   {
     _id: "4d37ce5e-2890-49a0-a8e9-35208963eb06",
     title: "Print My Fashion",

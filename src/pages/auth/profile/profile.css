@@ -1,25 +1,29 @@
 .profile_details {
   width: max-content;
   box-shadow: var(--box-shadow);
-  margin: 6rem auto;
+  margin: 8rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
 }
 .profile_nav {
   display: flex;
   justify-content: space-evenly;
   border-top: 5px solid var(--primary-color);
-  
-
+  width: max-content;
 }
 
 .profile_nav a {
   padding: 1rem;
   color: var(--primary-color);
-  /* border: 1px solid var(--primary-color); */
   border-bottom: none;
 }
 
+
+@media screen and (min-width:691px) {
+  .checkout_container{
+    margin-top: 6rem;
+  }
+}

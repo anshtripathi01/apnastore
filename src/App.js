@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router";
 import "./App.css";
 import { Home } from "./pages/home/Home";
-import Mockman from "mockman-js";
 import { Header } from "./components/header/Header";
 import { Products } from "./pages/productsListing/Products";
 import { SingleProductPage } from "./pages/singleProductPage/SingleProductPage";
@@ -11,6 +10,8 @@ import { RequiresAuth } from "./pages/auth/Private/RequiresAuth";
 import { SignUp } from "./pages/auth/Signup/Signup";
 import { CartPage } from "./pages/cart/CartPage";
 import { Wishlist } from "./pages/wishlist/Wishlist";
+import { Checkout } from "./pages/checkout/Checkout";
+import { NotFoundPage } from "./components/not-found/NotFoundPage";
 
 function App() {
   return (
@@ -55,9 +56,37 @@ function App() {
               </RequiresAuth>
             }
           />
+          <Route
+            path="/profile/orders"
+            element={
+              <RequiresAuth>
+                <Profile />
+              </RequiresAuth>
+            }
+          />
         </Route>
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/mock" element={<Mockman />} />
+
+        <Route path="/checkout">
+          <Route
+            path="/checkout"
+            index={true}
+            element={
+              <RequiresAuth>
+                <Checkout />
+              </RequiresAuth>
+            }
+          />
+          <Route
+            path="/checkout/order_summary"
+            element={
+              <RequiresAuth>
+                <Checkout />
+              </RequiresAuth>
+            }
+          />
+        </Route>
+        <Route path="*" element = {<NotFoundPage /> } />
       </Routes>
     </div>
   );

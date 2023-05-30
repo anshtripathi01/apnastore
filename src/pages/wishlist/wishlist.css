@@ -1,7 +1,7 @@
 /* wishlist page css */
 
 .wishlist_container {
-  margin-top: 6rem;
+  margin-top: 8rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -36,4 +36,11 @@
 .wish_btn_container {
     height: 33px;
 
+}
+
+/* media query */
+@media screen and (min-width:691px){
+  .wishlist_container{
+    margin-top: 6rem;
+  }
 }

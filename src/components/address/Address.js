@@ -11,8 +11,11 @@ import {
   AiFillPlusCircle,
 } from "react-icons/ai";
 import { useProfile } from "../../context/profileContext";
+import { useLocation, useNavigate } from "react-router";
 
 export const Address = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const { address, profileDispatcher } = useProfile();
   const states = [
     "Andhra Pradesh",
@@ -58,8 +61,6 @@ export const Address = () => {
     country: "INDIA",
   });
 
-  
-
   const addAddress = () => {
     setShow(true);
     setAdd({
@@ -102,7 +103,9 @@ export const Address = () => {
       payload: { ...add, id: uuidv4() },
     });
     toast.success("Address saved", { autoClose: 500 });
-    setShow(false);
+    setTimeout(() => {
+      navigate(location?.state?.from?.pathname || setShow(false));
+    }, 1000);
   };
 
   //   To delete addresss

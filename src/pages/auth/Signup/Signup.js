@@ -1,7 +1,7 @@
+import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../../context/authContext";
-import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./signup.css";
@@ -36,12 +36,11 @@ export const SignUp = () => {
       toast.success("User created Successfully");
       window.localStorage.setItem(
         "loginDetails",
-        JSON.stringify({  token: encodedToken, user: createdUser })
+        JSON.stringify({ token: encodedToken, user: createdUser })
       );
-      setTimeout(()=>{
+      setTimeout(() => {
         navigate("/products");
-      },2000)
-      
+      }, 2000);
     } catch (error) {
       console.log("error while signup");
     }
@@ -85,7 +84,7 @@ export const SignUp = () => {
           <input
             className="form_input"
             onChange={(e) =>
-              dispatch({ type: "UPDATE_EMAIL", payload: e.target.value })
+              dispatch({ type: "EMAIL", payload: e.target.value })
             }
             type="email"
             placeholder="Type your email"
@@ -127,7 +126,6 @@ export const SignUp = () => {
             type={isPassword ? "text" : "password"}
             placeholder="Confirm password"
             required
-            
           />
           {isError && <p className="signup_error">Passwords do not match</p>}
         </div>

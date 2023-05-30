@@ -5,7 +5,7 @@ export const authReducer = (state, {type, payload}) => {
             return {...state, credentials: {...state.credentials, firstName: payload}}
         case "LAST_NAME":
             return {...state, credentials: {...state.credentials, lastName: payload}}
-        case "UPDATE_EMAIL":
+        case "EMAIL":
             return {...state, credentials:{...state.credentials, email:payload }}
         case "PASSWORD":
             return {...state, credentials:{...state.credentials, password:payload }}    

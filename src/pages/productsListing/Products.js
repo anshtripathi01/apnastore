@@ -1,7 +1,7 @@
+import React, { useState } from "react";
 import { useProducts } from "../../context/productsContext";
 import { ProductCard } from "../../components/productCard/productCard";
 import "./products.css";
-import { useState } from "react";
 import { AiFillFilter } from "react-icons/ai";
 import { FilterProduct } from "../../components/filters/FilterProduct";
 import { Loader } from "../../components/loader/Loader";

@@ -1,9 +1,11 @@
+import React from "react";
 import { useAuth } from "../../../context/authContext";
 import "./profile.css";
 import { ToastContainer, toast } from "react-toastify";
 import { NavLink, useLocation } from "react-router-dom";
 import { UserDetails } from "../../../components/user/UserDetails";
 import { Address } from "../../../components/address/Address";
+import { OrdersSummary } from "../../../components/Orders/OrdersHistory";
 export const Profile = () => {
   const location = useLocation();
   const { dispatch } = useAuth();
@@ -36,7 +38,9 @@ export const Profile = () => {
         </NavLink>
       </div>
 
-      {location.pathname === "/profile/details" ? <UserDetails /> : <Address />}
+      {location.pathname === "/profile/details" && <UserDetails />}
+      {location.pathname === "/profile/address" && <Address />}
+      {location.pathname === "/profile/orders" && <OrdersSummary />}
       <div className="auth_btn_container">
         {location.pathname === "/profile/details" && (
           <button className="btn" type="button" onClick={logoutHandal}>

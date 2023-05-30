@@ -1,3 +1,4 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { HiOutlineShoppingCart, HiOutlineHeart } from "react-icons/hi";
 import "./header.css";

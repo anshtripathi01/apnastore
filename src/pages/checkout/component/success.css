@@ -1,0 +1,36 @@
+.success_container {
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: fixed;
+  top: 83px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.sucess_typo_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: -5rem;
+}
+
+.success_typo {
+  color: #3cb043;
+  flex-basis: 1;
+}
+
+.user_orders {
+  width: max-content;
+  padding: 1rem;
+  height: 200px;
+  overflow-y: scroll;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+}
+
+

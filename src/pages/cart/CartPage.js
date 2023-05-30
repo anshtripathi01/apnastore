@@ -4,8 +4,10 @@ import { useCart } from "../../context/cartContext";
 import { CartCard } from "./cart-card/CartCard";
 import { calculateCartValue } from "../../utils/cartUtility";
 import { ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router";
 
 export const CartPage = () => {
+  const navigate = useNavigate();
   const {
     state: { carts },
   } = useCart();
@@ -75,7 +77,12 @@ export const CartPage = () => {
               </p>
             </ul>
             <div>
-              <button className="checkout-btn">Checkout</button>
+              <button
+                className="checkout-btn"
+                onClick={() => navigate("/checkout")}
+              >
+                Checkout
+              </button>
             </div>
           </div>
         )}
