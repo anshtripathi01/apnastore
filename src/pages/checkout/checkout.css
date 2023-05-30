@@ -1,5 +1,5 @@
 .checkout_container{
-    margin-top: 6rem;
+    margin-top: 8rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -17,6 +17,13 @@
 
 .checkout_address input{
     margin: auto 1rem;
+}
+
+
+@media screen and (min-width:691px) {
+    .checkout_container{
+      margin-top: 6rem;
+    }
 }
 @media screen and (min-width:768px) {
     .checkout_container{
