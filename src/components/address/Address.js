@@ -103,8 +103,9 @@ export const Address = () => {
       payload: { ...add, id: uuidv4() },
     });
     toast.success("Address saved", { autoClose: 500 });
-    navigate(location?.state?.from?.pathname || setShow(false) );
-    
+    setTimeout(() => {
+      navigate(location?.state?.from?.pathname || setShow(false));
+    }, 1000);
   };
 
   //   To delete addresss
