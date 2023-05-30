@@ -1,3 +1,4 @@
+import React from "react";
 import { useAuth } from "../../../context/authContext";
 import "./profile.css";
 import { ToastContainer, toast } from "react-toastify";

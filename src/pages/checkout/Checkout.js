@@ -1,10 +1,10 @@
+import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCart } from "../../context/cartContext";
 import { useProfile } from "../../context/profileContext";
 import { calculateCartValue } from "../../utils/cartUtility";
 import "./checkout.css";
 import { Success } from "./component/Success";
-import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { AiFillPlusCircle } from "react-icons/ai";
 import { useAuth } from "../../context/authContext";

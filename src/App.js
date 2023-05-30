@@ -88,7 +88,6 @@ function App() {
           />
         </Route>
         <Route path="*" element = {<NotFoundPage /> } />
-        <Route path="/mock" element={<Mockman />} />
       </Routes>
     </div>
   );

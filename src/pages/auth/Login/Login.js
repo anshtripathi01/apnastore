@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
 import "./login.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -5,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "../../../context/authContext";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 
 export const Login = () => {
   const { dispatch, credentials, isPassword } = useAuth();
