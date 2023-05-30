@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
 import "./login.css";
 import { ToastContainer, toast } from "react-toastify";

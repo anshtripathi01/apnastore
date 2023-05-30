@@ -2,6 +2,7 @@
 
 .detail_main {
   margin-top: 6rem;
+  margin-bottom: 2rem;
 }
 .single-product-container {
   box-shadow: var(--box-shadow);
@@ -50,6 +51,7 @@
   justify-content: space-between;
   font-size: 1.5rem;
 }
+
 .detail_discount_price {
   color: var(--gray-color);
   text-decoration: line-through;
@@ -57,7 +59,11 @@
   margin-left: 0.5rem;
 }
 
-@media screen and (min-width: 768px) {
+.single_page_btn {
+  padding: 0.5rem 4rem;
+}
+
+@media screen and (min-width: 691px) {
   .single-product-container {
     width: 700px;
     flex-direction: row;

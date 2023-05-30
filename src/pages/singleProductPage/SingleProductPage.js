@@ -97,7 +97,11 @@ export const SingleProductPage = () => {
             </div>
             <div className="btn-container">
               {product?.inStock ? (
-                <button className="btn" onClick={() => addToCart(product)} disabled={click}>
+                <button
+                  className="btn single_page_btn"
+                  onClick={() => addToCart(product)}
+                  disabled={click}
+                >
                   {carts?.find(({ _id }) => _id === product._id)
                     ? "Go To Cart"
                     : "Add To Cart"}
