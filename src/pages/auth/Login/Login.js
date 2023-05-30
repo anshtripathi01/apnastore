@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import "./login.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -22,13 +22,21 @@ export const Login = () => {
   }, []);
 
   const submitForm = async (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     try {
+      if (e?.target?.name === "test") {
+        dispatch({ type: "EMAIL", payload: "apnastore@gmail.com" });
+        dispatch({ type: "PASSWORD", payload: "apnastore@123" });
+      }
       const res = await fetch("/api/auth/login", {
         method: "POST",
         body: JSON.stringify({
-          email: credentials?.email,
-          password: credentials?.password,
+          email:
+            e.target?.name === "test"
+              ? "apnastore@gmail.com"
+              : credentials?.email,
+          password:
+            e.target?.name === "test" ? "apnastore@123" : credentials?.password,
         }),
       });
       const { foundUser, encodedToken } = await res.json();
@@ -67,11 +75,12 @@ export const Login = () => {
           <input
             className="form_input"
             onChange={(e) =>
-              dispatch({ type: "UPDATE_EMAIL", payload: e.target.value })
+              dispatch({ type: "EMAIL", payload: e.target.value })
             }
             type="email"
             placeholder="Type your email"
             required
+            value={credentials?.email}
           />
         </div>
 
@@ -84,6 +93,7 @@ export const Login = () => {
             }
             type={isPassword ? "text" : "password"}
             placeholder="Enter your password"
+            value={credentials?.password}
             required
           />
           <button
@@ -101,6 +111,14 @@ export const Login = () => {
         <div className="auth_btn_container">
           <button type="submit" className="btn">
             Login
+          </button>
+          <button
+            className="btn"
+            type="button"
+            onClick={(e) => submitForm(e)}
+            name="test"
+          >
+            Login as Guest
           </button>
         </div>
 

@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router";
 import "./App.css";
 import { Home } from "./pages/home/Home";
-import Mockman from "mockman-js";
 import { Header } from "./components/header/Header";
 import { Products } from "./pages/productsListing/Products";
 import { SingleProductPage } from "./pages/singleProductPage/SingleProductPage";

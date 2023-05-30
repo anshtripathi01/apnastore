@@ -84,7 +84,7 @@ export const SignUp = () => {
           <input
             className="form_input"
             onChange={(e) =>
-              dispatch({ type: "UPDATE_EMAIL", payload: e.target.value })
+              dispatch({ type: "EMAIL", payload: e.target.value })
             }
             type="email"
             placeholder="Type your email"
