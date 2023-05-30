@@ -49,7 +49,7 @@ export const Checkout = () => {
       return;
     }
     navigate("/checkout/order_summary");
-    
+
     setCurrentOrder({
       order: carts,
       userAddress,
@@ -123,13 +123,10 @@ export const Checkout = () => {
             </form>
           )
         )}
-        <Link to = "/profile/address" state={{from:location}}>
-        <button
-          className="address_btn"
-          
-        >
-          <AiFillPlusCircle size={30} />
-        </button>
+        <Link to="/profile/address" state={{ from: location }}>
+          <button className="address_btn">
+            <AiFillPlusCircle size={30} />
+          </button>
         </Link>
       </div>
 

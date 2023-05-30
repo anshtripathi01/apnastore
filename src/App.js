@@ -12,6 +12,7 @@ import { SignUp } from "./pages/auth/Signup/Signup";
 import { CartPage } from "./pages/cart/CartPage";
 import { Wishlist } from "./pages/wishlist/Wishlist";
 import { Checkout } from "./pages/checkout/Checkout";
+import { NotFoundPage } from "./components/not-found/NotFoundPage";
 
 function App() {
   return (
@@ -86,7 +87,7 @@ function App() {
             }
           />
         </Route>
-
+        <Route path="*" element = {<NotFoundPage /> } />
         <Route path="/mock" element={<Mockman />} />
       </Routes>
     </div>
