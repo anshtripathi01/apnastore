@@ -85,6 +85,9 @@ export const SingleProductPage = () => {
               <strong>Availbilty : </strong>
               {product?.inStock ? "in Stock" : "out of stock"}
             </p>
+            <p>
+              <strong>Delivery :</strong> in 4 days
+            </p>
             <div className="price-info">
               <p>
                 <strong>₹{product?.price}</strong>
