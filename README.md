@@ -6,9 +6,6 @@ An Ecommerce app where you can a product of your choice
 
 ## Features
 
-- Live previews
-- Fullscreen mode
-- Cross platform
 - Home Page
 - Product Listing Page
 - Single Product Page
@@ -27,6 +24,8 @@ An Ecommerce app where you can a product of your choice
 - Address Management
 - Checkout
 - Order History
+- Live previews
+- Fully Responsive
 
 ## Authors
 
