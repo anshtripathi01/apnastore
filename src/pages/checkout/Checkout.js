@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCart } from "../../context/cartContext";
 import { useProfile } from "../../context/profileContext";
 import { calculateCartValue } from "../../utils/cartUtility";
@@ -27,6 +27,14 @@ export const Checkout = () => {
   const { totalCartPrice, originalValue } = calculateCartValue(carts) ?? "";
 
   const totalDiscount = originalValue - totalCartPrice;
+
+  // date format
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
   useEffect(() => {
     if (!carts.length) {
       navigate("/products");
@@ -41,14 +49,12 @@ export const Checkout = () => {
       return;
     }
     navigate("/checkout/order_summary");
-    setTimeout(() => {
-      navigate("/profile/orders");
-    }, 4000);
+    
     setCurrentOrder({
       order: carts,
       userAddress,
       totalCartPrice,
-      date: new Date(Date.now()).toLocaleDateString(),
+      date: new Date(Date.now()).toLocaleDateString("en-US", options),
     });
     profileDispatcher({
       type: "ADD_ORDERS",
@@ -56,7 +62,7 @@ export const Checkout = () => {
         order: carts,
         userAddress,
         totalCartPrice,
-        date: new Date(Date.now()).toLocaleDateString(),
+        date: new Date(Date.now()).toLocaleDateString("en-US", options),
       },
     });
 
@@ -117,12 +123,14 @@ export const Checkout = () => {
             </form>
           )
         )}
+        <Link to = "/profile/address" state={{from:location}}>
         <button
           className="address_btn"
-          onClick={() => navigate("/profile/address")}
+          
         >
           <AiFillPlusCircle size={30} />
         </button>
+        </Link>
       </div>
 
       <div>

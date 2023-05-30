@@ -70,7 +70,7 @@ export const OrdersSummary = () => {
                     {userAddress.country}
                   </p>
                   <p>
-                    <strong>Contact : </strong>
+                    <strong>Phone Number : </strong>
                     {userAddress.mobile}
                   </p>
                   <p>

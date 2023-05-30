@@ -6,8 +6,7 @@
     align-items: center;
 }
 
-.checkout_address{
-   
+.checkout_address{ 
     margin-top: 1rem;
     width: 340px;
     display: flex;

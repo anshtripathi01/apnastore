@@ -1,5 +1,4 @@
 section {
-  margin-top: 80px;
   display: flex;
   justify-content: space-between;
 }
@@ -65,6 +64,7 @@ section {
 /* main css */
 
 .main {
+  margin-top: 5rem;
   height: max-content;
   flex-basis: 50%;
   padding: var(--padding);
