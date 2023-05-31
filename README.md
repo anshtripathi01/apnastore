@@ -3,6 +3,15 @@
 
 An Ecommerce app where you can a product of your choice
 
+## Installation
+
+Install my-project
+
+```bash
+  git clone https://www.github.com/anshtripathi01/apnastore.git
+  cd apnastore
+  npm install
+```
 
 ## Features
 
@@ -34,9 +43,10 @@ An Ecommerce app where you can a product of your choice
 
 ## Demo
 
-Insert gif or link to demo
+(https://apnastore-ansh.netlify.app/)
 
-
+## Tech Stack:
+React, Vanilla CSS, mockbee.
 
 ## 🚀 About Me
 Hello, I am Ansh Tripathi. I'm currently learning full stack development...
