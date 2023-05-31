@@ -3,16 +3,6 @@
 
 An Ecommerce app where you can a product of your choice
 
-## Installation
-
-Install my-project
-
-```bash
-  git clone https://www.github.com/anshtripathi01/apnastore.git
-  cd apnastore
-  npm install
-```
-
 ## Features
 
 - Home Page
