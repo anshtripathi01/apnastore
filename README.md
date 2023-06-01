@@ -1,7 +1,7 @@
 
 # ApnaStore
 
-An Ecommerce app where you can a product of your choice
+An Ecommerce app where you can buy a product of your choice.
 
 ## Installation & Run Local
 
