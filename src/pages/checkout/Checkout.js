@@ -163,7 +163,7 @@ export const Checkout = () => {
                 }}
                 className="checkout-btn"
               >
-                Checkout
+                Place Order
               </button>
             </div>
           </div>
