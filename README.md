@@ -6,7 +6,7 @@ An Ecommerce app where you can buy a product of your choice.
 ## Installation & Run Local
 
 ```bash
-  git clone https://www.github.com/anshtripathi01/apnastore.git
+  git clone https://github.com/anshtripathi01/apnastore.git
   cd apnastore
   npm install
   npm start
