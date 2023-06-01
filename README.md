@@ -2,6 +2,7 @@
 # ApnaStore
 
 An Ecommerce app where you can buy a product of your choice.
+Discover, shop, and elevate your style effortlessly with our user-friendly fashion app. Explore the latest trends, get personalized recommendations, and enjoy a seamless shopping experience all in one place.
 
 ## Installation & Run Locally
 
