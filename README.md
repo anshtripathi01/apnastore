@@ -3,7 +3,7 @@
 
 An Ecommerce app where you can buy a product of your choice.
 
-## Installation & Run Local
+## Installation & Run Locally
 
 ```bash
   git clone https://github.com/anshtripathi01/apnastore.git
